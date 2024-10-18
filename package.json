@@ -1,0 +1,26 @@
+{
+  "name": "telegram",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@solana/web3.js": "^1.95.4",
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "bs58": "^4.0.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "ethereumjs-util": "^7.1.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemon": "^3.1.7",
+    "secp256k1": "^5.0.1"
+  }
+}
