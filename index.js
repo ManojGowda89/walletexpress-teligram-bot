@@ -67,8 +67,8 @@ bot.on('callback_query', async (query) => {
   const ip = query.from.id;
 
   const now = Date.now();
-  const monthLimit = 30;
-  const minuteLimit = 3;
+  const monthLimit = 5;
+  const minuteLimit = 5;
 
   if (!requestLogs.has(ip)) {
     requestLogs.set(ip, { timestamps: [], walletCount: 0, hasSuperkey: false });
@@ -91,7 +91,7 @@ bot.on('callback_query', async (query) => {
       
       bot.sendMessage(chatId, 'Do you have a superkey? If you do, paste it here:');
       bot.sendMessage(chatId, 'Contact Developer for SuperKey https://manojgowda.onrender.com/linkedin  with superKey You Can Generate unlimited WalletAddress');
-     
+      bot.sendMessage(chatId, 'Or Click On Website Menu and use OurWebsite-As Bot Can Generate Limited Number Of Wallets');
       bot.once('message', (msg) => {
         const userInput = msg.text;
         
@@ -113,8 +113,8 @@ bot.on('callback_query', async (query) => {
       
     
       bot.sendMessage(chatId, 'Do you have a superkey? If you do, paste it here:');
-      
-    
+      // bot.sendMessage(chatId, 'Contact Developer for SuperKey https://manojgowda.onrender.com/linkedin  with superKey You Can Generate unlimited WalletAddress');
+     
       bot.once('message', (msg) => {
         const userInput = msg.text;
         
