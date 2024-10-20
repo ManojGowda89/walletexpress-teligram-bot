@@ -108,10 +108,11 @@ bot.on('callback_query', async (query) => {
       bot.sendMessage(chatId, `Monthly limit reached. You can generate only ${monthLimit} wallet addresses per month.`);
 
       
-      bot.sendMessage(chatId, 'Do you have a superkey? If you do, paste it here:');
-      bot.sendMessage(chatId, 'Contact Developer for SuperKey https://manojgowda.onrender.com/linkedin  with superKey You Can Generate unlimited WalletAddress');
-      bot.sendMessage(chatId, 'Or Click On Website Menu and use OurWebsite-As Bot Can Generate Limited Number Of Wallets');
-      bot.once('message', (msg) => {
+      bot.sendMessage(chatId, 'Please contact the developer for a SuperKey by visiting https://manojgowda.onrender.com/linkedin. With the SuperKey, you can generate unlimited wallet addresses.');
+      bot.sendMessage(chatId, 'Alternatively, you can visit our website at https://walletexpress.onrender.com and use the platform. Note that the bot has certain restrictions in place for security purposes.');
+      
+      bot.sendMessage(chatId, 'Do you already have a SuperKey? If so, kindly paste it here:');
+       bot.once('message', (msg) => {
         const userInput = msg.text;
         
       
@@ -128,13 +129,9 @@ bot.on('callback_query', async (query) => {
     }
 
     if (userLogs.timestamps.length >= minuteLimit) {
-      bot.sendMessage(chatId, `Rate limit reached. You can generate only ${minuteLimit} wallet addresses per minute.`);
-      
-    
-      bot.sendMessage(chatId, 'Do you have a superkey? If you do, paste it here:');
-      // bot.sendMessage(chatId, 'Contact Developer for SuperKey https://manojgowda.onrender.com/linkedin  with superKey You Can Generate unlimited WalletAddress');
-     
-      bot.once('message', (msg) => {
+      bot.sendMessage(chatId, 'Please contact the developer for a SuperKey by visiting https://manojgowda.onrender.com/linkedin. With the SuperKey, you can generate unlimited wallet addresses.');
+      bot.sendMessage(chatId, 'Alternatively, you can visit our website at https://walletexpress.onrender.com and use the platform. Note that the bot has certain restrictions in place for security purposes.');
+        bot.once('message', (msg) => {
         const userInput = msg.text;
         
     
