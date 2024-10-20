@@ -44,10 +44,29 @@ bot.on('message', async (msg) => {
 
   if (text === 'Start' || "start") {
     try {
-      const response = await axios.get("https://transcrypto.up.railway.app/supported-cryptocurrencies");
-      const cryptos = response.data;
-
-      const cryptoButtons = cryptos.map(crypto => [{ text: crypto.cryptoType + " " + crypto.network, callback_data: crypto.cryptoType }]);
+      bot.sendMessage(chatId, 'WalletExpress is A bot Helps To Generate Sample Crypto WalletAddress');
+      const supportedCryptocurrencies = [
+        { cryptoType: 'BTC', network: 'Bitcoin Network' },
+        { cryptoType: 'BSV', network: 'Bitcoin Network' },
+        { cryptoType: 'LTC', network: 'Litecoin Network' },
+        { cryptoType: 'ETH', network: 'Ethereum Network(Arbitrum)' },
+        { cryptoType: 'USDT', network: 'USDT (ERC-20) Network' },
+        { cryptoType: 'ETH1', network: 'ETH (ERC-20) Network' },
+        { cryptoType: 'WLD', network: 'World Coin' },
+        { cryptoType: 'USDC', network: 'Solana (USDC) Network' },
+        { cryptoType: 'SOL', network: 'Solana Network' },
+        { cryptoType: 'USDT-SOL', network: 'Solana Network' },
+        { cryptoType: 'BNB', network: 'Binance Smart Chain (BEP-20)' },
+        { cryptoType: 'CELO', network: 'Celo Network' },
+        { cryptoType: 'USDT1', network: 'Tether (Base)' },//eth
+        { cryptoType: 'USDC1', network: 'USD Coin (Base)' }, //eth
+        { cryptoType: 'ETH2', network: 'Ethereum (Base)' }, 
+        // { cryptoType: 'DOGE', network: 'DOGE Coin' }, 
+    ];
+      // const response = await axios.get("https://transcrypto.up.railway.app/supported-cryptocurrencies");
+      // const cryptos = response.data;
+    // const cryptos = supportedCryptocurrencies;
+      const cryptoButtons = supportedCryptocurrencies.map(crypto => [{ text: crypto.cryptoType + " " + crypto.network, callback_data: crypto.cryptoType }]);
 
       bot.sendMessage(chatId, 'Please choose a cryptocurrency:', {
         reply_markup: {
@@ -67,7 +86,7 @@ bot.on('callback_query', async (query) => {
   const ip = query.from.id;
 
   const now = Date.now();
-  const monthLimit = 5;
+  const monthLimit = 10;
   const minuteLimit = 5;
 
   if (!requestLogs.has(ip)) {
