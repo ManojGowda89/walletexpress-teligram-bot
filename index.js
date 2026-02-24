@@ -61,7 +61,7 @@ bot.on('message', async (msg) => {
 
   if (text === 'Start' || "start") {
     try {
-      bot.sendMessage(chatId, 'WalletExpress is A bot Helps To Generate Sample Crypto WalletAddress');
+      bot.sendMessage(chatId, 'WalletExpress is A bot Helps To Generate Sample Crypto WalletAddress Now You can Generate 1000 Wallet Addresses Per Month For Free. If You Need More Than That, Please Contact The Developer For A SuperKey To Get Unlimited Wallet Address Generation. Please Note That The Bot Has Certain Restrictions In Place For Security Purposes. You Can Also Visit Our Website At https://walletexpress.manojgowda.in And Use The Platform With Similar Functionality.');
       const supportedCryptocurrencies = [
         { cryptoType: 'BTC', network: 'Bitcoin Network' },
         { cryptoType: 'BSV', network: 'Bitcoin Network' },
@@ -103,7 +103,7 @@ bot.on('callback_query', async (query) => {
   const ip = query.from.id;
 
   const now = Date.now();
-  const monthLimit = 10000;
+  const monthLimit = 1000;
   const minuteLimit = 5;
 
   if (!requestLogs.has(ip)) {
