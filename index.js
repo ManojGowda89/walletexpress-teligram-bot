@@ -103,7 +103,7 @@ bot.on('callback_query', async (query) => {
   const ip = query.from.id;
 
   const now = Date.now();
-  const monthLimit = 10;
+  const monthLimit = 10000;
   const minuteLimit = 5;
 
   if (!requestLogs.has(ip)) {
