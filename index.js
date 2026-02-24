@@ -29,9 +29,26 @@ setWebhook();
 
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'Welcome! Press "Start" to fetch supported cryptocurrencies.', {
+
+  const message = `
+👋 <b>Welcome to WalletExpress Bot</b>
+
+This bot helps you generate sample crypto wallet addresses quickly.
+
+🌐 Developer: <a href="https://manojgowda.in">manojgowda.in</a>  
+🙌 Shout-out to the developer.
+
+🔗 <a href="https://www.google.com/search?q=walletexpress+random">
+Open WalletExpress Page
+</a>
+
+👇 Press <b>Start</b> to continue.
+`;
+
+  bot.sendMessage(chatId, message, {
+    parse_mode: "HTML",
     reply_markup: {
-      keyboard: [[{ text: 'Start' }]],
+      keyboard: [[{ text: "Start" }]],
       resize_keyboard: true,
       one_time_keyboard: true,
     },
