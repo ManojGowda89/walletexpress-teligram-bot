@@ -169,7 +169,20 @@ bot.on('callback_query', async (query) => {
   try {
     const walletAddress = await generateWalletAddress(cryptoType);
     userLogs.timestamps.push(now);
-    bot.sendMessage(chatId, `Generated wallet address for ${cryptoType}: ${walletAddress.address}`);
+ bot.sendMessage(
+  chatId,
+  `✅ ${cryptoType} Wallet Address Generated
+
+${walletAddress.address}`,
+  {
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: "🌐 Developer", url: "https://manojgowda.in" }],
+        [{ text: "🔗 WalletExpress", url: "https://www.google.com/search?q=walletexpress+random" }]
+      ],
+    },
+  }
+);
   } catch (error) {
     bot.sendMessage(chatId, `Failed to generate wallet address for ${cryptoType}.`);
     console.error('Error generating wallet address:', error);
