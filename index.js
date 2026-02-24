@@ -26,31 +26,28 @@ async function setWebhook() {
 }
 
 setWebhook();
-
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
 
   const message = `
 👋 <b>Welcome to WalletExpress Bot</b>
 
-This bot helps you generate sample crypto wallet addresses quickly.
+Generate sample crypto wallet addresses instantly and securely.
 
-🌐 Developer: <a href="https://manojgowda.in">manojgowda.in</a>  
 🙌 Shout-out to the developer.
 
-🔗 <a href="https://www.google.com/search?q=walletexpress+random">
-Open WalletExpress Page
-</a>
-
-👇 Press <b>Start</b> to continue.
+👇 Click below to continue
 `;
 
   bot.sendMessage(chatId, message, {
     parse_mode: "HTML",
     reply_markup: {
-      keyboard: [[{ text: "Start" }]],
-      resize_keyboard: true,
-      one_time_keyboard: true,
+      inline_keyboard: [
+        [{ text: "🚀 Start", callback_data: "start_bot" }],
+        [{ text: "🌐 Developer (manojgowda.in)", url: "https://manojgowda.in" }],
+        [{ text: "⚡ Mini Website", url: "https://walletexpress.manojgowda.in" }],
+        [{ text: "🔍 WalletExpress on Google", url: "https://www.google.com/search?q=walletexpress+random" }]
+      ],
     },
   });
 });
@@ -173,12 +170,16 @@ bot.on('callback_query', async (query) => {
   chatId,
   `✅ ${cryptoType} Wallet Address Generated
 
-${walletAddress.address}`,
+${walletAddress.address}
+
+⚡ For a better experience, use our website.
+You can open the mini website below 👇`,
   {
     reply_markup: {
       inline_keyboard: [
         [{ text: "🌐 Developer", url: "https://manojgowda.in" }],
-        [{ text: "🔗 WalletExpress", url: "https://www.google.com/search?q=walletexpress+random" }]
+        [{ text: "🚀 Open Mini Website", url: "https://walletexpress.manojgowda.in" }],
+        [{ text: "🔗 WalletExpress (Google)", url: "https://www.google.com/search?q=walletexpress+random" }]
       ],
     },
   }
